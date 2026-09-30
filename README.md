@@ -102,6 +102,8 @@ You can also skip the skill system entirely: paste `SKILL.md` (or the flat
 | `SKILL.md` | The skill itself, in the format harnesses load. This is the file to edit. |
 | `ARCHITECT_UNIVERSAL.md` | The same content as a plain document, for harnesses without a skill system. Auto-generated from `SKILL.md`. |
 | `scripts/sync.sh` | Regenerates the universal document and copies `SKILL.md` to every harness folder present on your machine. |
+| `templates/commands/` | Thin slash commands the Architect copies into a new workspace (ingest, ask, link, lint, contradictions, graph, health, review). |
+| `templates/scripts/` | Concrete safety scripts copied into a new workspace (`dry_run`, `rollback`, `secrets_scan`, `health_check`). |
 
 ---
 

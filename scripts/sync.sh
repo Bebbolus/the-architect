@@ -19,7 +19,7 @@ SRC="$ROOT/SKILL.md"
 # --- 1. Regenerate the agnostic flat document -------------------------------
 UNIVERSAL="$ROOT/ARCHITECT_UNIVERSAL.md"
 {
-  printf '# ARCHITECT UNIVERSAL: Universal Autonomous Context Engine (SEED v3.1)\n\n'
+  printf '# ARCHITECT UNIVERSAL: Universal Autonomous Context Engine (SEED v3.2)\n\n'
   printf '> Auto-generated from SKILL.md by scripts/sync.sh. Do not edit by hand.\n\n'
   awk 'BEGIN{fm=0} /^---$/{fm++; next} fm>=2{print}' "$SRC"
 } > "$UNIVERSAL"
