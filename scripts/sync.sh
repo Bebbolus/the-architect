@@ -29,7 +29,6 @@ echo "generated: ARCHITECT_UNIVERSAL.md"
 TARGETS=(
   "$HOME/Developer/WD/MASTER/.opencode/skills/the-architect"
   "$HOME/.claude/skills/the-architect"
-  "$HOME/Developer/WD/MASTER/2 - PROGETTI/SEED/1 - THE-ARCHITECT/skills/the-architect"
 )
 
 for dir in "${TARGETS[@]}"; do
