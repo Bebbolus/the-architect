@@ -224,6 +224,20 @@ Alongside the harness hooks, scaffold concrete scripts under `scripts/` (copy fr
 These are plain bash, no dependencies. Wire `secrets_scan.sh` into the pre-commit hook.
 </safety_scripts>
 
+<hooks>
+Deterministic enforcement lives in real hooks, not prose. Scaffold from `templates/hooks/`:
+
+- OPENCODE: copy `opencode-guard.js` into `.opencode/plugins/`. It blocks writes whose
+  content looks like a secret, and enforces C4 confinement inside a generated workspace
+  (detected by `0_SYSTEM/CONTEXT.md`). Destructive shell commands are gated by the native
+  `permission.bash` rules in `opencode.jsonc` (`rm -rf`, `git push --force`, `git reset
+  --hard`, `curl | sh`), which are more reliable than any prompt instruction.
+- CLAUDE CODE: same logic as `.claude/hooks/` (tool:pre), plus a `prompt:submit` regex
+  interceptor for mechanical commands.
+- GENERIC: copy `pre-commit` into `<workspace>/.git/hooks/` and chmod +x. It blocks commits
+  containing obvious secrets. Plain bash, no dependencies.
+</hooks>
+
 # --- Adapters (load on demand, never inline) ---
 
 <adapter_schedule>

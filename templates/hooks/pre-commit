@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# pre-commit — block commits that contain obvious secrets.
+# Copy into <workspace>/.git/hooks/pre-commit and chmod +x.
+# Installed by The Architect (SEED v3.2). Plain grep, no dependencies.
+set -euo pipefail
+PATTERNS='(api[_-]?key|secret|password|passwd|token|bearer|private[_-]?key|BEGIN [A-Z ]*PRIVATE KEY|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,})'
+HITS=""
+for f in $(git diff --cached --name-only --diff-filter=ACM); do
+  [ -f "$f" ] || continue
+  while IFS= read -r line; do
+    HITS="${HITS}${f}:${line}"$'\n'
+  done < <(grep -InE "$PATTERNS" "$f" 2>/dev/null || true)
+done
+if [ -n "$HITS" ]; then
+  echo "PRE-COMMIT BLOCKED: potential secrets:"
+  printf '%s' "$HITS"
+  echo "Commit with --no-verify to override (not recommended)."
+  exit 1
+fi
+exit 0
