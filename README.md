@@ -1,87 +1,91 @@
 # 🏛️ The Architect: Universal Autonomous Context Engine
 
-[![Standard: Universal Skill](https://img.shields.io/badge/Standard-Universal%20Skill-blue.svg)](https://github.com/Bebbolus/the-architect-md)
+[![Standard: Universal Skill](https://img.shields.io/badge/Standard-Universal%20Skill-blue.svg)](https://github.com/Bebbolus/the-architect)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Zero-Bloat](https://img.shields.io/badge/Architecture-4%20Core%20Archetypes-green.svg)](https://github.com/Bebbolus/the-architect-md)
-[![Compatible: DSH · Claude Code · Cursor · Antigravity · Goose](https://img.shields.io/badge/Compatibility-Universal%20Harnesses-purple.svg)](https://github.com/Bebbolus/the-architect-md)
+[![Version](https://img.shields.io/badge/SEED-v3.1-green.svg)](https://github.com/Bebbolus/the-architect)
+[![Compatible: DSH · Claude Code · Cursor · Antigravity · Goose · OpenCode](https://img.shields.io/badge/Compatibility-Universal%20Harnesses-purple.svg)](https://github.com/Bebbolus/the-architect)
 
-**The Architect** is an autonomous context engine and meta-orchestrator engineered for agentic IDEs and LLM harnesses. Operating under the **Model Workspace Protocol (MWP)** and the **Interpretable Context Methodology (ICM)**, it treats the LLM as a state compiler rather than a conversational chatbot.
+> **This is the single source of truth.** All other Architect repositories are archived. Fork, copy or sync from here.
 
-Instead of polluting chat history with unbounded context, The Architect conducts an interactive triage, customizes directory topology, and compiles hyper-efficient operative sub-agents using **4 Core Generative Archetypes** and mandatory deliberation scratchpads.
+**The Architect** is an autonomous context engine and meta-orchestrator for agentic IDEs and LLM harnesses. Operating under the **Model Workspace Protocol (MWP)** and the **Interpretable Context Methodology (ICM)**, it treats the LLM as a state compiler rather than a conversational chatbot.
+
+It does not solve domain tasks in chat. It interviews the user, designs the directory topology, and compiles the operative contracts, hooks and archetypes that execute with autonomy, zero token bloat and zero hallucination.
 
 ---
 
-## ⚡ Core Paradigms
+## 📂 Repository Layout
 
-1. **Prompt-as-Architecture**: Completely self-contained in a single Markdown file (`SKILL.md`). Zero third-party databases, zero runtime dependencies.
-2. **Interactive Triage & Topology Customization**: During State 1 of triage, The Architect asks the user explicitly how they wish to name and structure workspace folders, detailing their purpose and adapting to custom workflows.
-3. **4 Core Generative Archetypes (Anti-Context Bloat)**:
-   - **Maker (Curator)**: Definition-first extraction, MECE multi-target splitting, and atomic 1:1 Obsidian backlinks.
-   - **Checker (Auditor & Critic)**: 4-Front adversarial stress-testing (Contradictions, Hidden Assumptions, Counter-examples, Vagueness).
-   - **Recon (Explorer)**: Hypothesis-driven factual search with explicit execution traces.
-   - **Coder (Builder)**: Intent-gated surgical engineering with test-first verification.
-4. **Hyper-Efficient Sub-Agent Compilation**: Every generated sub-agent contract embeds strict negative constraints, C1–C5 operational invariant clauses, and `<scratchpad>` reasoning tags (`[THINK]`, `[OBSERVE]`, `[DECISION]`).
-5. **Obsidian Atomic Backlink Architecture**: Enforces single-concept atomic note naming, enabling native Obsidian backlinks to resolve hyper-connections without orphan nodes.
+| File | Purpose |
+|---|---|
+| `SKILL.md` | The canonical skill (harness-native, YAML frontmatter). **Edit this.** |
+| `ARCHITECT_UNIVERSAL.md` | Platform-agnostic flat document. **Auto-generated** from `SKILL.md`. |
+| `scripts/sync.sh` | Regenerates the universal doc and propagates `SKILL.md` to every harness. |
+
+---
+
+## ⚡ Core Paradigms (v3.1)
+
+1. **Prompt-as-Architecture**: self-contained Markdown. Zero databases, zero runtime deps.
+2. **Three Dogmas, not six**: (1) MWP / Stateless Reducer, (2) Hook-First Enforcement, (3) Universal Triage Gate.
+3. **Hook-First**: *"A rule entrusted to model discipline will fail; a rule enforced by software holds."* Mechanical rules (confinement, destructive-command gates, output linting) are harness hooks, never prompt text.
+4. **Three core clauses (C1–C3)**: Routing Fallback, Handoff State Protocol, Code-as-Action & Active Oblivion. Confinement/retry/evidence-grounding are hooks or domain adapters.
+5. **Four Generative Archetypes (Anti-Context Bloat)**:
+   - **Maker (Curator)**: definition-first extraction, MECE multi-target splitting, atomic 1:1 Obsidian backlinks.
+   - **Checker (Auditor & Critic)**: 4-front adversarial stress-testing + calibration.
+   - **Recon (Explorer)**: hypothesis-driven search with explicit execution traces.
+   - **Coder (Builder)**: intent-gated surgical engineering with test-first verification.
+6. **Write Discipline**: only Maker and Coder write; Checker and Recon are read-only. Bulk/destructive writes go through *prepare → approve → materialize*.
 
 ---
 
 ## 🚀 How to Execute
 
-### Option A: As an Agentic Skill (Claude Code, Antigravity, OpenCode, Goose)
-Place `SKILL.md` into your platform's native skills folder:
+### Option A: As an Agentic Skill
 ```bash
-# For Claude Code (Global)
-mkdir -p ~/.claude/skills/the-architect
-cp SKILL.md ~/.claude/skills/the-architect/SKILL.md
-
-# For DeepSeek Harness (DSH)
-cp SKILL.md /path/to/dsh/skills/the-architect/SKILL.md
+# Claude Code (global)
+mkdir -p ~/.claude/skills/the-architect && cp SKILL.md ~/.claude/skills/the-architect/
+# OpenCode
+cp SKILL.md .opencode/skills/the-architect/SKILL.md
 ```
-Then invoke inside your session:
-```text
-/the-architect
-```
+Then invoke `/the-architect`.
 
 ### Option B: As a System Prompt or Initial Instruction
-Feed `SKILL.md` as the very first instruction in any clean workspace:
+Feed `SKILL.md` (or the agnostic `ARCHITECT_UNIVERSAL.md`) as the first instruction in a clean workspace:
 ```text
-Read SKILL.md and execute Phase 0 (Triage State Machine).
+Read SKILL.md and execute State 0 (Triage).
 ```
 
 ---
 
-## 🧭 Triage & Workflow Lifecycle
+## 🔄 Keeping Harnesses in Sync
 
+`SKILL.md` here is the only file you edit. Run:
+
+```bash
+./scripts/sync.sh
 ```
-[Start] ──► State 0: Environment Reconnaissance (Greenfield vs Brownfield)
-               │
-               ▼
-            State 1: Triage Depth Selection (Fast vs Deep)
-               │
-               ├─► Question 1: Core Objective & Deliverables
-               ├─► Question 2: Directory Naming & Topology Customization
-               └─► Question 3: Data Sources & Routing Rules
-               │
-               ▼
-            Scaffolding Factory (0_SYSTEM, 1_INBOX, 2_WORKFLOW, 3_KNOWLEDGE, tmp)
-               │
-               ▼
-            Derive Operatives from 4 Archetypes (Maker, Checker, Recon, Coder)
-               │
-               ▼
-            Closing Audit (Rule of Closure) ──► Factory Operational
-```
+
+It regenerates `ARCHITECT_UNIVERSAL.md` and copies `SKILL.md` to every registered harness target that exists on disk (OpenCode, Claude Code, and local clones). Idempotent and dependency-free.
 
 ---
 
-## 🔒 The 5 Operational Clauses (C1–C5)
+## 🧭 Workflow Lifecycle
 
-Every sub-agent and stage contract generated by The Architect enforces:
-- **C1 (Routing Fallback)**: Halt on missing data and consult the central map (`0_SYSTEM/CONTEXT.md`).
-- **C2 (Handoff State Protocol)**: Consolidate all state into assigned deliverables. Hydrate solely from briefs.
-- **C3 (Code-as-Action & Active Oblivion)**: Run disposable scripts in `tmp/` and delete them immediately after use.
-- **C4 (Territorial Confinement)**: Strictly respect directory boundaries; no unauthorized read/write.
-- **C5 (Iterative Guardrails)**: Maximum 3 consecutive self-correction attempts before human escalation.
+```
+[Start] ──► State 0: Reconnaissance (Greenfield vs Brownfield, host detection)
+               │
+               ▼
+            State 1: Triage Depth (Fast 3-question vs Deep Socratic)
+               │
+               ▼
+            Scaffold topology (Pipeline | Knowledge Bundle | Record Library)
+               │
+               ▼
+            Derive operatives from 4 Archetypes + embed C1–C3
+               │
+               ▼
+            Rule of Closure ──► Factory Operational
+```
 
 ---
 
